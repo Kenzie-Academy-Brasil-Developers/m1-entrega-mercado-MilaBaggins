@@ -3,7 +3,7 @@ const products = [
     title: "Uva Crimson",
     price: 8.99,
     category: "Frutas",
-    image: undefined,
+    image: "./img/products/no-img.svg",
     imageDescription: "",
   },
   {
@@ -31,7 +31,7 @@ const products = [
     title: "Refrigerante",
     price: 8.99,
     category: "Bebidas",
-    image: undefined,
+    image: "./img/products/no-img.svg",
     imageDescription: "",
   },
   {
@@ -45,7 +45,7 @@ const products = [
     title: "Água Tônica",
     price: 8.99,
     category: "Bebidas",
-    image: undefined,
+    image: "./img/products/no-img.svg",
     imageDescription: "",
   },
   {
@@ -84,7 +84,86 @@ const products = [
     title: "Lustra Móveis",
     price: 8.99,
     category: "Higiene",
-    image: undefined,
+    image: "./img/products/no-img.svg",
     imageDescription: "",
   },
 ];
+
+
+
+function creatFrutasTemplate(arr) {
+
+  let ul_fruits = document.querySelector(".ul_fruits")
+  for (index = 0; index < arr.length; index++) {
+    if (arr[index].category == "Frutas") {
+      ul_fruits.innerHTML += `    
+        <li class="product">
+          <img
+            src= ${arr[index].image}
+            alt=""
+            title=""
+            class="product-img"
+          />
+          <div class="product-main">
+            <h1 class="product-title"> ${arr[index].title} </h1>
+            <h5 class="product-category">${arr[index].category}</h5>
+            <strong class="product-price">${arr[index].price}</strong>
+          </div>
+        </li>
+      `
+    }
+  }
+}
+
+function creatBebidasTemplate(arr){
+
+  let ul_bebidas = document.querySelector(".ul_bebidas")
+  for (let index = 0; index < arr.length; index++){
+    if (arr[index].category == "Bebidas"){
+      ul_bebidas.innerHTML += `
+      <li class="product">
+          <img
+            src= ${arr[index].image}
+            alt=""
+            title=""
+            class="product-img"
+          />
+          <div class="product-main">
+            <h1 class="product-title"> ${arr[index].title} </h1>
+            <h5 class="product-category">${arr[index].category}</h5>
+            <strong class="product-price">${arr[index].price}</strong>
+          </div>
+        </li>
+      `
+    }
+  }
+}
+
+function creatHigieneTemplate(arr){
+
+  let ul_higiene = document.querySelector(".ul_higiene")
+  for (let index = 0; index < arr.length; index++){
+    if (arr[index].category == "Higiene"){
+      ul_higiene.innerHTML += `
+      <li class="product">
+          <img
+            src= ${arr[index].image}
+            alt=""
+            title=""
+            class="product-img"
+          />
+          <div class="product-main">
+            <h1 class="product-title"> ${arr[index].title} </h1>
+            <h5 class="product-category">${arr[index].category}</h5>
+            <strong class="product-price">${arr[index].price}</strong>
+          </div>
+        </li>
+      `
+    }
+  }
+}
+
+
+creatFrutasTemplate (products)
+creatBebidasTemplate(products)
+creatHigieneTemplate(products)
